@@ -245,9 +245,9 @@ def generate_commit_list(tz):
     sumAll = morning + daytime + evening + night
     sum_week = Sunday + Monday + Tuesday + Friday + Saturday + Wednesday + Thursday
     if morning + daytime >= evening + night:
-        title = "I'm an early 🐤"
+        title = "I'm an Early 🐤"
     else:
-        title = "I'm a night 🦉"
+        title = "I'm a Night 🦉"
     one_day = [
         {"name": "🌞 Morning", "text": str(morning) + " commits", "percent": round((morning / sumAll) * 100, 2)},
         {"name": "🌆 Daytime", "text": str(daytime) + " commits", "percent": round((daytime / sumAll) * 100, 2)},
@@ -291,7 +291,7 @@ def get_waka_time_stats():
         data = request.json()
         if showCommit.lower() in ['true', '1', 't', 'y', 'yes']:
             stats = stats + generate_commit_list(tz=data['data']['timezone']) + '\n\n'
-        stats = stats + '📊 **This week I spent my time on** \n\n'
+        stats = stats + '📊 **This Week I Spent My Time On** \n\n'
         stats = stats + '```text\n'
         if showTimeZone.lower() in ['true', '1', 't', 'y', 'yes']:
             timezone = data['data']['timezone']
@@ -301,28 +301,28 @@ def get_waka_time_stats():
             if len(data['data']['languages']) != 0:
                 lang_list = make_list(data['data']['languages'])
             else:
-                lang_list = "No Activity tracked this Week"
+                lang_list = "No Activity Tracked This Week"
             stats = stats + '💬 Languages: \n' + lang_list + '\n\n'
 
         if showEditors.lower() in ['true', '1', 't', 'y', 'yes']:
             if len(data['data']['editors']) != 0:
                 edit_list = make_list(data['data']['editors'])
             else:
-                edit_list = "No Activity tracked this Week"
+                edit_list = "No Activity Tracked This Week"
             stats = stats + '🔥 Editors: \n' + edit_list + '\n\n'
 
         if showProjects.lower() in ['true', '1', 't', 'y', 'yes']:
             if len(data['data']['projects']) != 0:
                 project_list = make_list(data['data']['projects'])
             else:
-                project_list = "No Activity tracked this Week"
+                project_list = "No Activity Tracked This Week"
             stats = stats + '🐱‍💻 Projects: \n' + project_list + '\n\n'
 
         if showOs.lower() in ['true', '1', 't', 'y', 'yes']:
             if len(data['data']['operating_systems']) != 0:
                 os_list = make_list(data['data']['operating_systems'])
             else:
-                os_list = "No Activity tracked this Week"
+                os_list = "No Activity Tracked This Week"
             stats = stats + '💻 Operating Systems: \n' + os_list + '\n\n'
 
         stats = stats + '```\n\n'
